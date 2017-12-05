@@ -21,10 +21,10 @@
     - configuration
     - tomcat
 
-#- name: deploy postgres
-#  #gather_facts: false
-#  become: true
-#  hosts: appdbs
-#  roles:
-#    - geerlingguy.postgresql
+- name: deploy postgres
+  #gather_facts: false
+  become: true
+  hosts: appdbs
+  roles:
+    - geerlingguy.postgresql
 
