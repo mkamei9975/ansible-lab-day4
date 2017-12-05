@@ -1,3 +1,10 @@
+- name: add_host
+  hosts: all
+  #gather_facts: false
+  become: true
+  roles:
+    - add_host
+
 - name: configuration
   hosts: all
   gather_facts: false
