@@ -1,15 +1,16 @@
-- name: configuration
-  hosts: all
-  gather_facts: false
-  become: true
-  roles:
-    - configuration
+#- name: configuration
+#  hosts: all
+#  gather_facts: false
+#  become: true
+#  roles:
+#    - configuration
 
 - name: deploy haproxy
   hosts: frontends
   gather_facts: false
   become: true
   roles:
+    - configuration
     - haproxy
 
 - name: deploy apache
@@ -17,6 +18,7 @@
   become: true
   hosts: apps
   roles:
+    - configuration
     - tomcat
 
 #- name: deploy postgres
