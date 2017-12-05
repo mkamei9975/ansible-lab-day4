@@ -6,7 +6,7 @@
     - add_host
 
 - name: configuration
-  hosts: all
+  hosts: all:!jumpbox
   gather_facts: false
   become: true
   roles:

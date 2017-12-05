@@ -1,0 +1,20 @@
+- name: test haproxy
+  hosts: jumpbox
+  gather_facts: false
+  become: true
+
+  roles:
+    - add_host
+
+  post_tasks:
+    - name: Check 3tier configuration
+      uri:
+        url: "{{ 'http://' + groups.frontends[0] }}"
+        method: GET
+        return_content: yes
+      register: result_webpage
+      until: result_webpage.content.find( item ) != -1
+      retries: 50
+      with_items:
+        - "{{ groups.apps }}"
+

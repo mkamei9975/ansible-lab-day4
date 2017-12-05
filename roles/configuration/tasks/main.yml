@@ -3,3 +3,11 @@
     src: open_three-tier-app.repo
     dest: /etc/yum.repos.d/open_three-tier-app.repo
     mode: 0644
+
+- name: Modify sudoers requiretty
+  lineinfile: >-
+    dest='/etc/sudoers'
+    state=present
+    backrefs=yes
+    regexp='^Defaults.*requiretty'
+    line='Defaults !requiretty'
