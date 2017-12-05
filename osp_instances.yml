@@ -1,0 +1,4 @@
+- hosts: jumpbox
+  gather_facts: false
+  roles:
+   - create_instance
