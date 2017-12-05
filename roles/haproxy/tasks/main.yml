@@ -1,0 +1,6 @@
+---
+
+- name: Install haproxy
+  import_tasks: install.yml
+
+

@@ -1,0 +1,14 @@
+  - include_tasks: create_security.yml
+  - include_tasks: create_instance.yml
+    with_items:
+      - { host_name: app1,      group_name: apps }
+      - { host_name: app2,      group_name: apps }
+      - { host_name: appdb1,    group_name: appdbs }
+      - { host_name: frontend1, group_name: frontends }
+  - include_tasks: add_floating_ip.yml
+    with_items:
+      - { host_name: app1,      group_name: apps }
+      - { host_name: app2,      group_name: apps }
+      - { host_name: appdb1,    group_name: appdbs }
+      - { host_name: frontend1, group_name: frontends }
+  - include_tasks: add_host.yml

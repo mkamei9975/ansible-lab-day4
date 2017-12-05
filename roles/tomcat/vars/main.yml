@@ -1,0 +1,2 @@
+tomcat_root: /usr/share/tomcat/webapps/ROOT
+index_template: index.html.j2
